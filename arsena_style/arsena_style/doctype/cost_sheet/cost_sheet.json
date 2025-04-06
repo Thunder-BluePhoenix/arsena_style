@@ -1,0 +1,270 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "naming_series:",
+ "creation": "2025-04-05 23:52:16.628205",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "basic_detals_section",
+  "collection_name",
+  "product_name",
+  "item_code",
+  "column_break_suso",
+  "style_no",
+  "season",
+  "is_embroidery",
+  "embroidery",
+  "embroidery_no",
+  "column_break_wjes",
+  "size",
+  "color",
+  "views",
+  "cost_and_quantity_section",
+  "fabric_cost_each",
+  "dyes_cost__each",
+  "embroidery_cost__each",
+  "material_cost__each",
+  "tailor_cost__each",
+  "column_break_ixir",
+  "qty",
+  "total_cost",
+  "section_break_uvbz",
+  "description",
+  "more_info_tab",
+  "section_break_luev",
+  "amended_from",
+  "bom_id",
+  "work_order",
+  "column_break_vbah",
+  "naming_series",
+  "posting_date",
+  "posting_time"
+ ],
+ "fields": [
+  {
+   "fieldname": "section_break_luev",
+   "fieldtype": "Section Break",
+   "label": "More Info"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Cost Sheet",
+   "print_hide": 1,
+   "read_only": 1,
+   "search_index": 1
+  },
+  {
+   "fieldname": "basic_detals_section",
+   "fieldtype": "Section Break",
+   "label": "Basic Detals"
+  },
+  {
+   "fieldname": "collection_name",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Collection Name",
+   "options": "Collections"
+  },
+  {
+   "fieldname": "product_name",
+   "fieldtype": "Link",
+   "label": "Product Name",
+   "options": "Product Category"
+  },
+  {
+   "fieldname": "item_code",
+   "fieldtype": "Link",
+   "label": "Item Code",
+   "options": "Item"
+  },
+  {
+   "fieldname": "column_break_suso",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "style_no",
+   "fieldtype": "Data",
+   "label": "Style No"
+  },
+  {
+   "fieldname": "color",
+   "fieldtype": "Link",
+   "label": "Color",
+   "options": "Color"
+  },
+  {
+   "fieldname": "season",
+   "fieldtype": "Link",
+   "label": "Season",
+   "options": "Season"
+  },
+  {
+   "fieldname": "column_break_wjes",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "size",
+   "fieldtype": "Data",
+   "label": "Size"
+  },
+  {
+   "fieldname": "qty",
+   "fieldtype": "Float",
+   "label": "Qty"
+  },
+  {
+   "fieldname": "section_break_uvbz",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "description",
+   "fieldtype": "Text Editor",
+   "label": "Description"
+  },
+  {
+   "fieldname": "more_info_tab",
+   "fieldtype": "Tab Break",
+   "label": "More Info"
+  },
+  {
+   "fieldname": "views",
+   "fieldtype": "Table",
+   "label": "Views",
+   "options": "Image Table"
+  },
+  {
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "label": "Naming Series",
+   "options": "PSS-CS-.YYYY.-"
+  },
+  {
+   "default": "0",
+   "fieldname": "is_embroidery",
+   "fieldtype": "Check",
+   "label": "Is Embroidery"
+  },
+  {
+   "depends_on": "eval: doc.is_embroidery === 1;",
+   "fieldname": "embroidery",
+   "fieldtype": "Link",
+   "label": "Embroidery",
+   "options": "Embroidery"
+  },
+  {
+   "depends_on": "eval: doc.is_embroidery === 1;",
+   "fieldname": "embroidery_no",
+   "fieldtype": "Data",
+   "label": "Embroidery No"
+  },
+  {
+   "fieldname": "bom_id",
+   "fieldtype": "Link",
+   "label": "BOM ID",
+   "options": "BOM",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_vbah",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "Now",
+   "fieldname": "posting_time",
+   "fieldtype": "Time",
+   "label": "Posting Time"
+  },
+  {
+   "default": "Today",
+   "fieldname": "posting_date",
+   "fieldtype": "Date",
+   "label": "Posting date"
+  },
+  {
+   "fieldname": "cost_and_quantity_section",
+   "fieldtype": "Section Break",
+   "label": "Cost And Quantity"
+  },
+  {
+   "fieldname": "fabric_cost_each",
+   "fieldtype": "Currency",
+   "label": "Fabric Cost (Each)",
+   "options": "Company:company:default_currency"
+  },
+  {
+   "fieldname": "dyes_cost__each",
+   "fieldtype": "Currency",
+   "label": "Dyes Cost  (Each)",
+   "options": "Company:company:default_currency"
+  },
+  {
+   "fieldname": "embroidery_cost__each",
+   "fieldtype": "Currency",
+   "label": "Embroidery Cost  (Each)",
+   "options": "Company:company:default_currency"
+  },
+  {
+   "fieldname": "material_cost__each",
+   "fieldtype": "Currency",
+   "label": "Material Cost  (Each)",
+   "options": "Company:company:default_currency"
+  },
+  {
+   "fieldname": "tailor_cost__each",
+   "fieldtype": "Currency",
+   "label": "Tailor Cost  (Each)",
+   "options": "Company:company:default_currency"
+  },
+  {
+   "fieldname": "column_break_ixir",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "total_cost",
+   "fieldtype": "Currency",
+   "label": "Total Cost",
+   "options": "Company:company:default_currency",
+   "read_only": 1
+  },
+  {
+   "fieldname": "work_order",
+   "fieldtype": "Link",
+   "label": "Work Order",
+   "options": "Work Order",
+   "read_only": 1
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [],
+ "max_attachments": 10,
+ "modified": "2025-04-06 15:49:57.096637",
+ "modified_by": "Administrator",
+ "module": "Arsena Style",
+ "name": "Cost Sheet",
+ "naming_rule": "By \"Naming Series\" field",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

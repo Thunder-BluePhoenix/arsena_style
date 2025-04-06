@@ -26,7 +26,7 @@ app_license = "mit"
 
 # include js, css files in header of desk.html
 # app_include_css = "/assets/arsena_style/css/arsena_style.css"
-# app_include_js = "/assets/arsena_style/js/arsena_style.js"
+app_include_js = "/assets/arsena_style/js/barcode_scaner_rs.js"
 
 # include js, css files in header of web template
 # web_include_css = "/assets/arsena_style/css/arsena_style.css"
@@ -136,6 +136,10 @@ app_license = "mit"
 # Document Events
 # ---------------
 # Hook on document methods and events
+doc_events = {
+    "Work Order": {"on_submit":"arsena_style.arsena_style.methods.workorder.create_pps"},
+    "Stock Entry":{"on_submit":"arsena_style.arsena_style.methods.stock_entry.create_fp"}
+}
 
 # doc_events = {
 # 	"*": {
