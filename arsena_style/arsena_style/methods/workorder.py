@@ -21,7 +21,7 @@ def create_pps(self, method=None):
     for view in item.custom_views:
         pps.append("views", {
             "view_angle": view.view_angle,
-            "image": view.view_angle
+            "image": view.image
         })
 
 
