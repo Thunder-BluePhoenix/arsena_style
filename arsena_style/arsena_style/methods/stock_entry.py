@@ -52,7 +52,7 @@ def create_fp(self, method=None):
                    for view in item.custom_views:
                        pf.append("views", {
                            "view_angle": view.view_angle,
-                           "image": view.view_angle
+                           "image": view.image
                        })
                
                # Calculate costs
@@ -108,6 +108,7 @@ def create_fp(self, method=None):
                
                # Create a dictionary with all the document fields for embedding in metadata
                barcode_data = {
+                   "final_product": pf.name,
                    "collection_name": pf.collection_name,
                    "product_name": pf.product_name,
                    "item_code": pf.item_code,
