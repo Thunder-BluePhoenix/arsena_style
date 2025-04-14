@@ -10,7 +10,7 @@ frappe.ui.form.on("Work Order", {
                         encodeURIComponent(frm.doc.custom_cost_sheet) +
                         '&trigger_print=1' +
                         '&format=' + 
-                        encodeURIComponent('Cost Sheet') +
+                        encodeURIComponent('Cost Sheet LandScape') +
                         '&no_letterhead=0'
                     )
                 );

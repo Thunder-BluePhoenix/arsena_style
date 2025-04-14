@@ -6,6 +6,7 @@
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
+  "created_without_workorder_doc",
   "basic_detals_section",
   "collection_name",
   "product_name",
@@ -62,6 +63,7 @@
    "options": "Product Category"
   },
   {
+   "depends_on": "eval: doc.created_without_workorder_doc === 0;",
    "fieldname": "item_code",
    "fieldtype": "Link",
    "label": "Item Code",
@@ -136,7 +138,7 @@
    "fieldtype": "Currency",
    "label": "Total Production Cost",
    "options": "Company:company:default_currency",
-   "read_only": 1
+   "read_only_depends_on": "eval: doc.created_without_workorder_doc === 0;"
   },
   {
    "fieldname": "section_break_uvbz",
@@ -234,7 +236,8 @@
   {
    "fieldname": "barcode",
    "fieldtype": "Barcode",
-   "label": "Barcode"
+   "label": "Barcode",
+   "read_only": 1
   },
   {
    "fieldname": "section_break_rptn",
@@ -244,13 +247,19 @@
    "fieldname": "materials",
    "fieldtype": "Table",
    "label": "Materials",
-   "options": "Final Product Materials",
-   "read_only": 1
+   "options": "Final Product Materials"
   },
   {
+   "depends_on": "eval: doc.created_without_workorder_doc === 0;",
    "fieldname": "final_no_qty",
    "fieldtype": "Data",
    "label": "Final No/ qty"
+  },
+  {
+   "default": "0",
+   "fieldname": "created_without_workorder_doc",
+   "fieldtype": "Check",
+   "label": "Created Without WorkOrder Doc"
   }
  ],
  "grid_page_length": 50,
@@ -258,7 +267,7 @@
  "is_submittable": 1,
  "links": [],
  "max_attachments": 10,
- "modified": "2025-04-06 16:26:57.203154",
+ "modified": "2025-04-14 16:22:33.570636",
  "modified_by": "Administrator",
  "module": "Arsena Style",
  "name": "Final Product",
