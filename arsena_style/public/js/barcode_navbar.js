@@ -543,7 +543,7 @@ frappe.barcode_scanner.BarcodeScanner = class BarcodeScanner {
                    </div>
                    <div class="product-detail-item">
                        <div class="product-detail-label">Item Code</div>
-                       <div class="product-detail-value">${frappe.utils.escape_html(product.item_code || '')}</div>
+                       <div class="product-detail-value">${frappe.utils.escape_html(product.item_code || 'None')}</div>
                    </div>
                    <div class="product-detail-item">
                        <div class="product-detail-label">Collection</div>
@@ -567,7 +567,7 @@ frappe.barcode_scanner.BarcodeScanner = class BarcodeScanner {
                    </div>
                    <div class="product-detail-item">
                        <div class="product-detail-label">Final No/Qty</div>
-                       <div class="product-detail-value">${frappe.utils.escape_html(product.final_no_qty || '')}</div>
+                       <div class="product-detail-value">${frappe.utils.escape_html(product.final_no_qty || 'None')}</div>
                    </div>
                </div>
        
@@ -575,19 +575,19 @@ frappe.barcode_scanner.BarcodeScanner = class BarcodeScanner {
                <div class="product-details">
                    <div class="product-detail-item">
                        <div class="product-detail-label">Product Slug</div>
-                       <div class="product-detail-value">${frappe.utils.escape_html(product.product_slug || '')}</div>
+                       <div class="product-detail-value">${frappe.utils.escape_html(product.product_slug || 'None')}</div>
                    </div>
                    <div class="product-detail-item">
                        <div class="product-detail-label">BOM ID</div>
-                       <div class="product-detail-value">${frappe.utils.escape_html(product.bom_id || '')}</div>
+                       <div class="product-detail-value">${frappe.utils.escape_html(product.bom_id || 'None')}</div>
                    </div>
                    <div class="product-detail-item">
                        <div class="product-detail-label">Work Order</div>
-                       <div class="product-detail-value">${frappe.utils.escape_html(product.work_order || '')}</div>
+                       <div class="product-detail-value">${frappe.utils.escape_html(product.work_order || 'None')}</div>
                    </div>
                    <div class="product-detail-item">
                        <div class="product-detail-label">Cost Sheet</div>
-                       <div class="product-detail-value">${frappe.utils.escape_html(product.cost_sheet || '')}</div>
+                       <div class="product-detail-value">${frappe.utils.escape_html(product.cost_sheet || 'None')}</div>
                    </div>
                    <div class="product-detail-item">
                        <div class="cost-details">
