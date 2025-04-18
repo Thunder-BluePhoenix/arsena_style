@@ -20,6 +20,8 @@
   "size",
   "color",
   "views",
+  "section_break_lrgw",
+  "raw_items",
   "cost_and_quantity_section",
   "fabric_cost_each",
   "dyes_cost__each",
@@ -236,6 +238,16 @@
    "label": "Work Order",
    "options": "Work Order",
    "read_only": 1
+  },
+  {
+   "fieldname": "section_break_lrgw",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "raw_items",
+   "fieldtype": "Table",
+   "label": "Raw Items",
+   "options": "BOM Item"
   }
  ],
  "grid_page_length": 50,
@@ -243,7 +255,7 @@
  "is_submittable": 1,
  "links": [],
  "max_attachments": 10,
- "modified": "2025-04-06 15:49:57.096637",
+ "modified": "2025-04-18 16:36:34.060249",
  "modified_by": "Administrator",
  "module": "Arsena Style",
  "name": "Cost Sheet",
