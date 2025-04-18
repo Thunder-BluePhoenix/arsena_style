@@ -17,7 +17,7 @@ def create_pps(self, method=None):
     pps.embroidery = item.custom_embroidery
     pps.embroidery_no = item.custom_embroidery_no
     pps.bom_id = doc.name
-    pps.work_order = self.name
+    # pps.work_order = self.name
     for view in item.custom_views:
         pps.append("views", {
             "view_angle": view.view_angle,
@@ -54,7 +54,7 @@ def create_pps(self, method=None):
     pps.material_cost__each = material_cost__each
     pps.tailor_cost__each = tailor_cost__each
 
-    doc_qty = self.qty
+    doc_qty = doc.quantity
     pps.qty = doc_qty
 
     pps.total_cost = float(total_cost_each) * doc_qty
@@ -67,8 +67,10 @@ def create_pps(self, method=None):
     frappe.msgprint(_("Cost Sheet {0} created from Work Order {1}").format(pps.name, self.name))
 
 
+def before_save_wo(self, method=None):
 
-
+    bom = frappe.get_doc("BOM", self.bom_no)
+    self.custom_cost_sheet = bom.custom_cost_sheet
 
 
 def create_fp(self, method=None):
@@ -104,7 +106,7 @@ def create_fp(self, method=None):
             pf.final_no_qty = f"{current_unit}/{doc_qty}"
             
             # Create product slug with BOM ID, Work Order ID, Cost Sheet, and final_no_qty
-            pf.product_slug = f"{doc.name}-{self.name}-{self.custom_cost_sheet}-{pf.final_no_qty}".replace("/", "-")
+            pf.product_slug = f"{doc.name}-{self.name}-{pf.final_no_qty}".replace("/", "-")
             
             # Add views
             for view in item.custom_views:
@@ -174,7 +176,6 @@ def create_fp(self, method=None):
                 "amended_from": pf.amended_from,
                 "bom_id": pf.bom_id,
                 "work_order": pf.work_order,
-                "cost_sheet": pf.cost_sheet,
                 "naming_series": pf.naming_series,
                 "posting_date": str(pf.posting_date),
                 "posting_time": str(pf.posting_time)
@@ -189,7 +190,7 @@ def create_fp(self, method=None):
                 'collection_name', 'product_name', 'item_code', 'product_slug', 
                 'final_no_qty', 'style_no', 'season', 'is_embroidery', 
                 'embroidery', 'embroidery_no', 'size', 'color', 
-                'total_cost', 'bom_id', 'work_order', 'cost_sheet', 
+                'total_cost', 'bom_id', 'work_order', 
                 'naming_series', 'posting_date', 'posting_time'
             ]
             

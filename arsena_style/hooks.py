@@ -43,7 +43,8 @@ app_include_js = "/assets/arsena_style/js/barcode_navbar.js"
 # page_js = {"page" : "public/js/file.js"}
 
 # include js in doctype views
-doctype_js = {"Work Order" : "public/js/workorder.js"}
+doctype_js = {"Work Order" : "public/js/workorder.js",
+              "BOM": "public/js/bom.js"}
 # doctype_list_js = {"doctype" : "public/js/doctype_list.js"}
 # doctype_tree_js = {"doctype" : "public/js/doctype_tree.js"}
 # doctype_calendar_js = {"doctype" : "public/js/doctype_calendar.js"}
@@ -137,7 +138,8 @@ doctype_js = {"Work Order" : "public/js/workorder.js"}
 # ---------------
 # Hook on document methods and events
 doc_events = {
-    "Work Order": {"on_submit":"arsena_style.arsena_style.methods.workorder.create_pps"},
+    "Work Order": {"before_save":"arsena_style.arsena_style.methods.workorder.before_save_wo"},
+    "BOM": {"on_submit":"arsena_style.arsena_style.methods.bom.create_pps"},
     "Stock Entry":{"on_submit":"arsena_style.arsena_style.methods.stock_entry.create_fp"}
 }
 

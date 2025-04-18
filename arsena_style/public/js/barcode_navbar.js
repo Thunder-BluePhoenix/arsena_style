@@ -574,27 +574,10 @@ frappe.barcode_scanner.BarcodeScanner = class BarcodeScanner {
                <div class="section-title">Production Info</div>
                <div class="product-details">
                    <div class="product-detail-item">
-                       <div class="product-detail-label">Product Slug</div>
-                       <div class="product-detail-value">${frappe.utils.escape_html(product.product_slug || 'None')}</div>
+                       <div class="product-detail-label">Product Description</div>
+                       <div class="product-detail-value">${frappe.utils.escape_html(product.description || 'None')}</div>
                    </div>
-                   <div class="product-detail-item">
-                       <div class="product-detail-label">BOM ID</div>
-                       <div class="product-detail-value">${frappe.utils.escape_html(product.bom_id || 'None')}</div>
-                   </div>
-                   <div class="product-detail-item">
-                       <div class="product-detail-label">Work Order</div>
-                       <div class="product-detail-value">${frappe.utils.escape_html(product.work_order || 'None')}</div>
-                   </div>
-                   <div class="product-detail-item">
-                       <div class="product-detail-label">Cost Sheet</div>
-                       <div class="product-detail-value">${frappe.utils.escape_html(product.cost_sheet || 'None')}</div>
-                   </div>
-                   <div class="product-detail-item">
-                       <div class="cost-details">
-                           <span class="product-detail-label">Total Cost</span>
-                           <span class="cost-value">${frappe.format(product.total_cost, {fieldtype: 'Currency'})}</span>
-                       </div>
-                   </div>
+                   
                </div>
        `;
 
