@@ -26,7 +26,7 @@ app_license = "mit"
 
 # include js, css files in header of desk.html
 # app_include_css = "/assets/arsena_style/css/arsena_style.css"
-app_include_js = "/assets/arsena_style/js/barcode_navbarsrt.js"
+app_include_js = "/assets/arsena_style/js/barcode_navbarsrtt.js"
 
 # include js, css files in header of web template
 # web_include_css = "/assets/arsena_style/css/arsena_style.css"
