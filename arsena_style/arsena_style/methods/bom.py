@@ -17,6 +17,7 @@ def create_pps(doc, method=None):
     pps.embroidery = item.custom_embroidery
     pps.embroidery_no = item.custom_embroidery_no
     pps.bom_id = doc.name
+    pps.description = item.description
     
     # pps.work_order = self.name
     for view in item.custom_views:
@@ -89,7 +90,7 @@ def create_pps(doc, method=None):
     pps.qty = doc_qty
 
     pps.total_cost = float(total_cost_each) * doc_qty
-    pps.description = item.description
+    
 
     pps.save()
     pps.submit()

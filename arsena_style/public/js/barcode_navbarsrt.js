@@ -530,8 +530,8 @@ frappe.barcode_scanner.BarcodeScanner = class BarcodeScanner {
        let html = `
        <div class="product-info-container">
            <div class="section-title">
-               Final Product: ${frappe.utils.escape_html(product.name || '')} 
-               <span style="margin-left: 20px;">Barcode: ${frappe.utils.escape_html(product.barcode || '')}</span>
+               Barcode: ${frappe.utils.escape_html(product.barcode || '')} 
+              
            </div>
            
            <div class="product-info-left-panel">
@@ -570,18 +570,31 @@ frappe.barcode_scanner.BarcodeScanner = class BarcodeScanner {
                        <div class="product-detail-value">${frappe.utils.escape_html(product.final_no_qty || 'None')}</div>
                    </div>
                </div>
-       
-               <div class="section-title">Production Info</div>
                <div class="product-details">
-                   <div class="product-detail-item">
-                       <div class="product-detail-label">Product Description</div>
-                       <div class="product-detail-value">${frappe.utils.escape_html(product.description || 'None')}</div>
+               <div class="product-detail-item">
+                       <div class="product-detail-label">Valuation</div>
+                       <div class="product-detail-value">${frappe.utils.escape_html(product.valuation || 'None')}</div>
                    </div>
                    
+                   
                </div>
+       
+               
+               <div class="product-details">
+    <div class="product-detail-item">
+        <div class="product-detail-label">Product Description</div>
+        <div class="product-detail-value">
+            ${product.description || 'None'}
+        </div>
+    </div>
+</div>
+
+
+
+
        `;
 
-       // Add embroidery info if available
+       // Add embroidery info if available2
        if (product.is_embroidery) {
            html += `
                <div class="section-title">Embroidery Information</div>
