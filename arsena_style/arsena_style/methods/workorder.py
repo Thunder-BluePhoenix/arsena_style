@@ -100,6 +100,8 @@ def create_fp(self, method=None):
             pf.bom_id = doc.name
             pf.work_order = self.name
             pf.cost_sheet = self.custom_cost_sheet
+            pf.description = item.descriptio
+            pf.valuation = item.valuation_rate
             
             # Set serial number / tracking number (1 of N, 2 of N, etc.)
             current_unit = i + 1
@@ -148,7 +150,7 @@ def create_fp(self, method=None):
             
             # Set total cost for the individual item
             pf.total_cost = float(total_cost_each)
-            pf.description = item.description
+            
             
             # Generate barcode using a hash of important document fields
             import hashlib

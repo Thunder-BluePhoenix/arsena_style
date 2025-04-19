@@ -10,6 +10,7 @@
   "collection_name",
   "product_name",
   "item_code",
+  "total_consumption",
   "column_break_suso",
   "style_no",
   "season",
@@ -248,6 +249,12 @@
    "fieldtype": "Table",
    "label": "Raw Items",
    "options": "BOM Item"
+  },
+  {
+   "allow_on_submit": 1,
+   "fieldname": "total_consumption",
+   "fieldtype": "Small Text",
+   "label": "Total Consumption"
   }
  ],
  "grid_page_length": 50,
@@ -255,7 +262,7 @@
  "is_submittable": 1,
  "links": [],
  "max_attachments": 10,
- "modified": "2025-04-18 16:36:34.060249",
+ "modified": "2025-04-19 13:34:51.227099",
  "modified_by": "Administrator",
  "module": "Arsena Style",
  "name": "Cost Sheet",

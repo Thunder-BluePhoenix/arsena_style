@@ -30,6 +30,7 @@
   "barcode",
   "column_break_ixir",
   "total_cost",
+  "valuation",
   "section_break_uvbz",
   "description",
   "more_info_tab",
@@ -260,6 +261,12 @@
    "fieldname": "created_without_workorder_doc",
    "fieldtype": "Check",
    "label": "Created Without WorkOrder Doc"
+  },
+  {
+   "fetch_from": "item_code.valuation_rate",
+   "fieldname": "valuation",
+   "fieldtype": "Float",
+   "label": "Valuation"
   }
  ],
  "grid_page_length": 50,
@@ -267,7 +274,7 @@
  "is_submittable": 1,
  "links": [],
  "max_attachments": 10,
- "modified": "2025-04-16 01:03:14.592069",
+ "modified": "2025-04-19 13:06:31.277221",
  "modified_by": "Administrator",
  "module": "Arsena Style",
  "name": "Final Product",
