@@ -146,6 +146,7 @@
    "fieldtype": "Section Break"
   },
   {
+   "allow_on_submit": 1,
    "fieldname": "description",
    "fieldtype": "Text Editor",
    "label": "Description"
@@ -274,7 +275,7 @@
  "is_submittable": 1,
  "links": [],
  "max_attachments": 10,
- "modified": "2025-04-19 13:06:31.277221",
+ "modified": "2025-04-19 16:38:12.019164",
  "modified_by": "Administrator",
  "module": "Arsena Style",
  "name": "Final Product",
