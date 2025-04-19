@@ -603,10 +603,7 @@ frappe.barcode_scanner.BarcodeScanner = class BarcodeScanner {
                        <div class="product-detail-label">Embroidery</div>
                        <div class="product-detail-value">${frappe.utils.escape_html(product.embroidery || '')}</div>
                    </div>
-                   <div class="product-detail-item">
-                       <div class="product-detail-label">Embroidery No</div>
-                       <div class="product-detail-value">${frappe.utils.escape_html(product.embroidery_no || '')}</div>
-                   </div>
+                   
                </div>
            `;
        }
