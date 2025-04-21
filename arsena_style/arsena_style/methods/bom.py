@@ -57,39 +57,36 @@ def create_pps(doc, method=None):
             "sourced_by_supplier": i.sourced_by_supplier
         })
 
-    fabric_cost_each = 0
-    dyes_cost__each = 0
-    embroidery_cost__each = 0
-    material_cost__each = 0
-    tailor_cost__each = doc.custom_tailor_cost
-    for item in doc.items:
-        bom_item = frappe.get_doc("Item", item.item_code)
-        group_type = bom_item.custom_group_type
-        bom_qty = float(doc.quantity)
-        est_cost = float(item.amount)
-        cost_each = float(est_cost / bom_qty)
 
-        if group_type == "Fabric":
-            fabric_cost_each += cost_each
-        elif group_type == "DYES":
-            dyes_cost__each += cost_each
-        elif group_type == "Embroidery":
-            embroidery_cost__each += cost_each
-        elif group_type == "Material":
-            material_cost__each += cost_each
-        else:
-            continue
-    total_cost_each = fabric_cost_each + dyes_cost__each + embroidery_cost__each + material_cost__each + tailor_cost__each
-    pps.fabric_cost_each = fabric_cost_each
-    pps.dyes_cost__each = dyes_cost__each
-    pps.embroidery_cost__each = embroidery_cost__each
-    pps.material_cost__each = material_cost__each
-    pps.tailor_cost__each = tailor_cost__each
+    for i in doc.custom_services:
+        pps.append("services", {
+            # Essential fields (marked as mandatory in CSV)
+            "service": i.service,
+            "qty": i.qty,
+            "uom": i.uom,
+            "rate": i.rate,
+            "amount": i.amount,
+            "time": i.time,
+            "vendor": i.vendor,
+            
+        })
+    bom_qty = float(doc.quantity)
+    tailor_cost__each = float(doc.custom_tailor_cost)/bom_qty
+    
+    pps.tailor_cost = tailor_cost__each
+    pps.timetailor = doc.custom_time_taken_by_tailor
+    pps.total_consumption = doc.custom_total_consumption
+    total_mat_amount = (sum(float(row.amount or 0) for row in doc.items))/bom_qty
+    total_opp_amount = (sum(float(row.amount or 0) for row in doc.custom_services))/bom_qty
+    pps.operation_cost = total_opp_amount
+    pps.material_cost = total_mat_amount
+    pps.service_cost = total_opp_amount + tailor_cost__each
+    total_amount = total_opp_amount + tailor_cost__each + total_mat_amount
 
-    doc_qty = doc.quantity
+    doc_qty = 1
     pps.qty = doc_qty
 
-    pps.total_cost = float(total_cost_each) * doc_qty
+    pps.total_cost = float(total_amount) * doc_qty
     
 
     pps.save()
@@ -99,4 +96,69 @@ def create_pps(doc, method=None):
     frappe.msgprint(_("Cost Sheet {0} created from BOM{1}").format(pps.name, doc.name))
 
 
+
+
+
+import frappe
+from frappe import _
+
+@frappe.whitelist()
+@frappe.validate_and_sanitize_search_inputs
+def get_allowed_vendors(doctype, txt, searchfield, start, page_len, filters):
+    """
+    Get list of vendors allowed for a specific service item
+    
+    Args:
+        doctype (str): The DocType being searched (Supplier)
+        txt (str): Search text
+        searchfield (str): Field being searched
+        start (int): Start index for pagination
+        page_len (int): Number of results per page
+        filters (dict): Additional filters, containing the service item
+        
+    Returns:
+        list: List of allowed vendors as tuples (vendor_name, vendor_id)
+    """
+    if not filters.get('service'):
+        return []
+    
+    service_item = filters.get('service')
+    
+    # First, let's debug the structure of Operation Vendor
+    # Get field names from Operation Vendor doctype
+    fields = frappe.db.get_table_columns("Operation Vendor")
+    
+    # Use the correct field name for supplier based on the actual schema
+    supplier_field = "supplier"  # This is what we assumed
+    
+    # Get all vendors associated with this service item
+    # Using a more robust SQL query that doesn't rely on specific column names
+    vendor_data = frappe.db.sql("""
+        SELECT ov.supplier
+        FROM `tabOperation Vendor` ov
+        WHERE ov.parent = %s
+    """, (service_item,))
+    
+    if not vendor_data:
+        return []
+    
+    # Extract vendor names into a list
+    vendor_list = [v[0] for v in vendor_data]
+    
+    # If no vendors found, return empty list
+    if not vendor_list:
+        return []
+    
+    # Now query the Supplier doctype with these allowed vendors
+    # and any additional text search criteria
+    vendors_str = "'" + "','".join(vendor_list) + "'"
+    
+    return frappe.db.sql(f"""
+        SELECT name, name as supplier_name
+        FROM `tabSupplier`
+        WHERE name IN ({vendors_str})
+        AND (name LIKE %s OR supplier_name LIKE %s)
+        ORDER BY name
+        LIMIT %s, %s
+    """, ("%" + txt + "%", "%" + txt + "%", start, page_len))
 

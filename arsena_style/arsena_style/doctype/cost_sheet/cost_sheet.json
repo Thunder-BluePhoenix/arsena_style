@@ -23,14 +23,18 @@
   "views",
   "section_break_lrgw",
   "raw_items",
+  "section_break_ojyv",
+  "services",
+  "section_break_rxmd",
+  "tailor_cost",
+  "timetailor",
+  "column_break_jkqe",
+  "operation_cost",
   "cost_and_quantity_section",
-  "fabric_cost_each",
-  "dyes_cost__each",
-  "embroidery_cost__each",
-  "material_cost__each",
-  "tailor_cost__each",
+  "material_cost",
+  "service_cost",
   "column_break_ixir",
-  "qty",
+  "quantity",
   "total_cost",
   "section_break_uvbz",
   "description",
@@ -115,11 +119,6 @@
    "label": "Size"
   },
   {
-   "fieldname": "qty",
-   "fieldtype": "Float",
-   "label": "Qty"
-  },
-  {
    "fieldname": "section_break_uvbz",
    "fieldtype": "Section Break"
   },
@@ -193,36 +192,6 @@
    "label": "Cost And Quantity"
   },
   {
-   "fieldname": "fabric_cost_each",
-   "fieldtype": "Currency",
-   "label": "Fabric Cost (Each)",
-   "options": "Company:company:default_currency"
-  },
-  {
-   "fieldname": "dyes_cost__each",
-   "fieldtype": "Currency",
-   "label": "Dyes Cost  (Each)",
-   "options": "Company:company:default_currency"
-  },
-  {
-   "fieldname": "embroidery_cost__each",
-   "fieldtype": "Currency",
-   "label": "Embroidery Cost  (Each)",
-   "options": "Company:company:default_currency"
-  },
-  {
-   "fieldname": "material_cost__each",
-   "fieldtype": "Currency",
-   "label": "Material Cost  (Each)",
-   "options": "Company:company:default_currency"
-  },
-  {
-   "fieldname": "tailor_cost__each",
-   "fieldtype": "Currency",
-   "label": "Tailor Cost  (Each)",
-   "options": "Company:company:default_currency"
-  },
-  {
    "fieldname": "column_break_ixir",
    "fieldtype": "Column Break"
   },
@@ -255,6 +224,59 @@
    "fieldname": "total_consumption",
    "fieldtype": "Small Text",
    "label": "Total Consumption"
+  },
+  {
+   "fieldname": "section_break_ojyv",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "services",
+   "fieldtype": "Table",
+   "label": "Services",
+   "options": "Service Operations"
+  },
+  {
+   "fieldname": "section_break_rxmd",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "tailor_cost",
+   "fieldtype": "Currency",
+   "label": "Tailor Cost",
+   "options": "Company:company:default_currency"
+  },
+  {
+   "fieldname": "timetailor",
+   "fieldtype": "Data",
+   "label": "Time(Tailor)"
+  },
+  {
+   "fieldname": "column_break_jkqe",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "operation_cost",
+   "fieldtype": "Currency",
+   "label": "Operation Cost",
+   "options": "Company:company:default_currency"
+  },
+  {
+   "fieldname": "material_cost",
+   "fieldtype": "Currency",
+   "label": "Material Cost",
+   "options": "Company:company:default_currency"
+  },
+  {
+   "fieldname": "service_cost",
+   "fieldtype": "Currency",
+   "label": "Service Cost",
+   "options": "Company:company:default_currency"
+  },
+  {
+   "default": "1",
+   "fieldname": "quantity",
+   "fieldtype": "Data",
+   "label": "Quantity"
   }
  ],
  "grid_page_length": 50,
@@ -262,7 +284,7 @@
  "is_submittable": 1,
  "links": [],
  "max_attachments": 10,
- "modified": "2025-04-19 13:34:51.227099",
+ "modified": "2025-04-22 02:37:54.701209",
  "modified_by": "Administrator",
  "module": "Arsena Style",
  "name": "Cost Sheet",

@@ -266,8 +266,9 @@
   {
    "fetch_from": "item_code.valuation_rate",
    "fieldname": "valuation",
-   "fieldtype": "Float",
-   "label": "Valuation"
+   "fieldtype": "Currency",
+   "label": "Valuation",
+   "options": "Company:company:default_currency"
   }
  ],
  "grid_page_length": 50,
@@ -275,7 +276,7 @@
  "is_submittable": 1,
  "links": [],
  "max_attachments": 10,
- "modified": "2025-04-19 16:38:12.019164",
+ "modified": "2025-04-22 03:42:01.049607",
  "modified_by": "Administrator",
  "module": "Arsena Style",
  "name": "Final Product",
