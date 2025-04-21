@@ -76,5 +76,7 @@ class FinalProduct(Document):
 
 
 
-
-
+def update_after_submit(self, method=None):
+	if self.item_code:
+		item = frappe.get_doc("Item", self.item_code)
+		self.valuation = item.valuation
