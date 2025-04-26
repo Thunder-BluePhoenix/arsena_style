@@ -712,42 +712,42 @@ frappe.barcode_scanner.BarcodeScanner = class BarcodeScanner {
        }
        
        // Add materials table with vertical scroll
-       html += `<div class="section-title">Materials</div>`;
+    //    html += `<div class="section-title">Materials</div>`;
        
-       if (product.materials && product.materials.length > 0) {
-           html += `
-           <div class="materials-list">
-               <table class="materials-table">
-                   <thead>
-                       <tr>
-                           <th>Item Code</th>
-                           <th>Item Name</th>
-                           <th>Item Group</th>
-                           <th>Group Type</th>
-                       </tr>
-                   </thead>
-                   <tbody>
-           `;
+    //    if (product.materials && product.materials.length > 0) {
+    //        html += `
+    //        <div class="materials-list">
+    //            <table class="materials-table">
+    //                <thead>
+    //                    <tr>
+    //                        <th>Item Code</th>
+    //                        <th>Item Name</th>
+    //                        <th>Item Group</th>
+    //                        <th>Group Type</th>
+    //                    </tr>
+    //                </thead>
+    //                <tbody>
+    //        `;
            
-           product.materials.forEach(material => {
-               html += `
-               <tr>
-                   <td>${frappe.utils.escape_html(material.item_code || '')}</td>
-                   <td>${frappe.utils.escape_html(material.item_name || '')}</td>
-                   <td>${frappe.utils.escape_html(material.item_group || '')}</td>
-                   <td>${frappe.utils.escape_html(material.item_group_type || '')}</td>
-               </tr>
-               `;
-           });
+    //        product.materials.forEach(material => {
+    //            html += `
+    //            <tr>
+    //                <td>${frappe.utils.escape_html(material.item_code || '')}</td>
+    //                <td>${frappe.utils.escape_html(material.item_name || '')}</td>
+    //                <td>${frappe.utils.escape_html(material.item_group || '')}</td>
+    //                <td>${frappe.utils.escape_html(material.item_group_type || '')}</td>
+    //            </tr>
+    //            `;
+    //        });
            
-           html += `
-                   </tbody>
-               </table>
-           </div>
-           `;
-       } else {
-           html += `<p>No materials information available.</p>`;
-       }
+    //        html += `
+    //                </tbody>
+    //            </table>
+    //        </div>
+    //        `;
+    //    } else {
+    //        html += `<p>No materials information available.</p>`;
+    //    }
        
        html += `</div>`; // Close right panel
        
